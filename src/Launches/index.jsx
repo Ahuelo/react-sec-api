@@ -2,6 +2,7 @@ import React from 'react';
 import * as API from '../services/launches.js'
 import { useEffect, useState } from 'react';
 import { LaunchItem } from "../LaunchItem";
+import { v4 as uuidv4 } from 'uuid';
 
 const Launches = () =>{
     const [launches, setLaunches] = useState([]);
@@ -13,7 +14,7 @@ const Launches = () =>{
         <section>
             {launches.map(launch=>(
                 <LaunchItem 
-                key={launch.flight_number} 
+                key={uuidv4()} 
                 {...launch}/>
             ))}
         </section>

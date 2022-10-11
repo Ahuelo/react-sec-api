@@ -1,12 +1,10 @@
 import './App.css';
-import { Launches } from './Launches';
-import { Title } from './Titulo';
+import { Titulo } from './Titulo';
 
 function App() {
   return (
     <div className="App">
-      <Title/>
-      <Launches></Launches>
+      <Titulo/>
     </div>
   );
 }

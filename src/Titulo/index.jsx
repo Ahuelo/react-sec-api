@@ -1,14 +1,21 @@
 import React from 'react';
 import logo from '../assets/logo.png';
-import { Heading, Image } from '@chakra-ui/react'
+import { Image } from '@chakra-ui/react';
+import { Routes, Route } from "react-router-dom";
+import { Launches } from '../Launches';
+import { LaunchDetail } from '../LaunchDetail';
 
-const Title = () => {
+const Titulo = () => {
     return(
         <>
         <Image m={4} src={ logo } alt='Logo-SpaceX' />
-        <Heading as='h1' size='xl' m={4}>SpaceX Launches</Heading>
+        <Routes>
+            <Route path="/" element={<Launches />} />
+            <Route path="launch/:launchId" element={<LaunchDetail />} />
+        </Routes>
+        
         </>
     )
 };
 
-export { Title };
+export { Titulo };

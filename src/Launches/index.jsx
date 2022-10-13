@@ -9,17 +9,22 @@ const Launches = () =>{
     const [launches, setLaunches] = useState([]);
 
     useEffect(()=>{
-        API.getAllLaunches().then(setLaunches);
+        API.getAllLaunches().then(setLaunches).catch(console.error);
     }, []);
     return (
-        <section>
+        <>
             <Heading as='h1' size='xl' m={4}>SpaceX Launches</Heading>
-            {launches.map(launch=>(
-                <LaunchItem 
-                key={uuidv4()} 
-                {...launch}/>
-            ))}
-        </section>
+            {launches.length ===0 ? (<div> Loading...</div>): (
+                <section>
+                    {launches.map(launch=>(
+                        <LaunchItem 
+                        key={uuidv4()} 
+                        {...launch}/>
+                    ))}
+                </section>
+            )}
+
+        </>
     )
 
 }

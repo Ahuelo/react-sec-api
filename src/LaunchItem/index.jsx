@@ -1,15 +1,11 @@
 import React from 'react';
 import { FaCalendarAlt } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 import { Box, Flex, Text, Spacer, Tag, Button, Icon } from '@chakra-ui/react';
 
 const LaunchItem = (launch) => {
     return (
-        <Box 
-        
-        bg='gray.100' 
-        p={4} 
-        m={4} 
-        borderRadius='lg'>
+        <Box bg='gray.100' p={4} m={4} borderRadius='lg'>
             <Flex>
                 <Text fontSize='2xl'>
                     Mission <strong>{launch.mission_name}</strong> ({launch.launch_year})
@@ -25,9 +21,12 @@ const LaunchItem = (launch) => {
                     {launch.launch_date_local.split("T")[0]}
                 </Text>
             </Flex>
-            <Button colorScheme='teal'>
-                More Details
-            </Button>
+            {/* Se requiere usar el Link para redirigir  usando react-router-dom */}
+            <Link to={`launch/${launch.flight_number}`}>
+                <Button colorScheme='teal'>
+                    More Details
+                </Button>
+            </Link>
         </Box>
     )
 };
